@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Unlimited Proxy</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        #status { margin: 10px 0; }
+        #settings { display: none; margin-top: 10px; }
+        button { margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <h1>Super Unlimited Proxy</h1>
+    <div>
+        <label for="server">Select Server:</label>
+        <select id="server">
+            <option value="us">United States</option>
+            <option value="uk">United Kingdom</option>
+            <option value="de">Germany</option>
+            <option value="jp">Japan</option>
+        </select>
+    </div>
+    <div id="status">Status: Disconnected</div>
+    <button id="connect">Connect</button>
+    <button id="disconnect">Disconnect</button>
+    <button id="toggleSettings">Settings</button>
+    <div id="settings">
+        <h2>Settings</h2>
+        <div>
+            <label for="protocol">VPN Protocol:</label>
+            <select id="protocol">
+                <option value="auto">Auto</option>
+                <option value="tcp">TCP</option>
+                <option value="udp">UDP</option>
+            </select>
+        </div>
+        <div>
+            <input type="checkbox" id="autoReconnect">
+            <label for="autoReconnect">Auto-Reconnect</label>
+        </div>
+        <div>
+            <input type="checkbox" id="killSwitch">
+            <label for="killSwitch">Kill Switch</label>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('connect').addEventListener('click', function() {
+            document.getElementById('status').innerText = 'Status: Connected';
+        });
+
+        document.getElementById('disconnect').addEventListener('click', function() {
+            document.getElementById('status').innerText = 'Status: Disconnected';
+        });
+
+        document.getElementById('toggleSettings').addEventListener('click', function() {
+            var settings = document.getElementById('settings');
+            if (settings.style.display === 'none' || settings.style.display === '') {
+                settings.style.display = 'block';
+            } else {
+                settings.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
